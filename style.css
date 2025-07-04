@@ -1,78 +1,88 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background: #fdfdfd;
-    color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #fdfdfd;
+  color: #333;
 }
 
-header {
-    text-align: center;
-    margin-bottom: 40px;
+.container {
+  display: flex;
+  min-height: 100vh;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-h1 {
-    margin-bottom: 0;
-    font-size: 2.5em;
+.sidebar {
+  width: 30%;
+  background: #fff;
+  padding: 20px;
+  box-shadow: 1px 0 5px rgba(0, 0, 0, 0.05);
+  text-align: center;
 }
 
-.tagline {
-    font-size: 1.25em;
-    margin-top: 0;
-    color: #555;
-}
-
-.subtitle {
-    font-size: 1em;
-    color: #777;
-}
 .profile-photo {
-    width: 120px;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 2px solid #ccc;
-    display: block;
-    margin: 0 auto 20px auto;
-}
-.contact-icons {
-    text-align: center;
-    margin-bottom: 20px;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  margin-bottom: 15px;
 }
 
 .contact-icons a {
-    color: #0077cc;
-    margin: 0 15px;
-    font-size: 3em; /* Increased from 1.5em */
-    text-decoration: none;
+  margin: 0 10px;
+  font-size: 1.8em;
+  color: #0077cc;
+  text-decoration: none;
 }
 
 .contact-icons a:hover {
-    color: #005fa3;
+  color: #005fa3;
+}
+
+.tagline {
+  font-weight: bold;
+  margin: 10px 0 5px;
+}
+
+.subtitle {
+  font-size: 0.95em;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.content {
+  width: 70%;
+  padding: 30px;
 }
 
 h2 {
-    border-bottom: 2px solid #eee;
-    padding-bottom: 5px;
-    margin-top: 40px;
+  margin-top: 30px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 5px;
 }
 
-ul {
-    list-style: none;
-    padding-left: 0;
-}
-.skills li,
-.experience li,
-.projects li {
-    margin-bottom: 10px;
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px 20px;
+  margin-top: 10px;
 }
 
-a {
-    color: #0077cc;
-    text-decoration: none;
+.project-card {
+  background: #f9f9f9;
+  padding: 15px;
+  margin: 10px 0;
+  border-left: 4px solid #0077cc;
 }
 
-a:hover {
-    text-decoration: underline;
+.project-card h3 {
+  margin: 0 0 5px;
+}
+
+details summary {
+  cursor: pointer;
+  font-weight: bold;
+  margin: 10px 0;
 }
