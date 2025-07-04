@@ -43,14 +43,15 @@ h1 {
 
 .contact-icons a {
     color: #0077cc;
-    margin: 0 10px;
-    font-size: 1.5em;
+    margin: 0 15px;
+    font-size: 2.2em; /* Increased from 1.5em */
     text-decoration: none;
 }
 
 .contact-icons a:hover {
     color: #005fa3;
 }
+
 
 
 h2 {
