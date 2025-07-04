@@ -36,6 +36,22 @@ h1 {
     display: block;
     margin: 0 auto 20px auto;
 }
+.contact-icons {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.contact-icons a {
+    color: #0077cc;
+    margin: 0 10px;
+    font-size: 1.5em;
+    text-decoration: none;
+}
+
+.contact-icons a:hover {
+    color: #005fa3;
+}
+
 
 h2 {
     border-bottom: 2px solid #eee;
@@ -47,7 +63,6 @@ ul {
     list-style: none;
     padding-left: 0;
 }
-
 .skills li,
 .experience li,
 .projects li {
