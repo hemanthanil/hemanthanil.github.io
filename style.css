@@ -4,6 +4,21 @@ body {
   padding: 0;
   background: linear-gradient(to bottom right, #0d0d0d, #1a1a1a);
   color: #f0f0f0;
+  transition: all 0.3s ease;
+}
+
+body.light-mode {
+  background: #ffffff;
+  color: #222;
+}
+
+body.light-mode .navbar {
+  background: #f2f2f2aa;
+}
+
+body.light-mode .project-card {
+  background: #ffffffdd;
+  color: #000;
 }
 
 .navbar {
@@ -15,6 +30,7 @@ body {
   padding: 10px 20px;
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 25px;
   z-index: 10;
 }
@@ -23,6 +39,14 @@ body {
   color: #00f5d4;
   text-decoration: none;
   font-weight: bold;
+}
+
+.toggle-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.2em;
+  cursor: pointer;
+  color: #00f5d4;
 }
 
 .hero {
