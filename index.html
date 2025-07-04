@@ -1,69 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Hemanth Anil | Product Manager</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+  <meta charset="UTF-8" />
+  <title>Hemanth Anil | Product Manager</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
 </head>
 <body>
+  <div class="container">
+    <aside class="sidebar">
+      <img src="images/hemanth.jpg" alt="Hemanth Anil" class="profile-photo" />
+      <h1>Hemanth Anil</h1>
+      <p class="tagline">Product Manager & Platform Strategist</p>
+      <p class="subtitle">Helping teams and businesses build digital products from 0 → N</p>
+      <div class="contact-icons">
+        <a href="https://www.linkedin.com/in/look4meanil" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:look4meanil@example.com" title="Email"><i class="fas fa-envelope"></i></a>
+        <a href="resume.pdf" target="_blank" title="Resume"><i class="fas fa-file-alt"></i></a>
+      </div>
+    </aside>
 
-    <header>
-        <img src="images/hemanth.JPG" alt="Hemanth Anil" class="profile-photo">
-        <h1>Hemanth Anil</h1>
-        <p class="tagline">Product Manager & Platform Strategist</p>
-        <p class="subtitle">Helping teams and businesses build digital products from 0 → N</p>
-        <div class="contact-icons">
-          <a href="https://www.linkedin.com/in/look4meanil" target="_blank" title="LinkedIn">
-            <i class="fab fa-linkedin"></i>
-          </a>
-          <a href="mailto:hemanthanilofficial@gmail.com" title="Email">
-            <i class="fas fa-envelope"></i>
-          </a>
-          <a href="Resume-HemanthAnil.pdf" target="_blank" title="Resume">
-            <i class="fas fa-file-alt"></i>
-          </a>
-        </div>
-    </header>
-
-    <section>
+    <main class="content">
+      <section>
         <h2>Top Skills</h2>
-        <ul class="skills">
-            <li>Data Analysis & Visualization</li>
-            <li>Agile Methodology</li>
-            <li>AI Product Development</li>
-            <li>Digital Product Strategy</li>
-            <li>UX/ Content Development</li>
-            <li>User Testing & Feedback</li>
-            <li>API Design & Development</li>
-        </ul>
-    </section>
+        <div class="skills-grid">
+          <div>Data Analysis & Visualization</div>
+          <div>Agile Methodology</div>
+          <div>AI Product Development</div>
+          <div>Digital Product Strategy</div>
+          <div>UX/Content Development</div>
+          <div>User Testing & Feedback</div>
+          <div>API Design & Development</div>
+        </div>
+      </section>
 
-    <section>
+      <section>
         <h2>Work Experience</h2>
-        <ul class="experience">
-            <li><strong>Business Applications Specialist</strong><br>Doctors of BC, Vancouver | May 2024 - Present</li>
-            <li><strong>Business Applications Developer</strong><br>Watson Gloves, Burnaby | Nov 2022 - May 2024</li>
-            <li><strong>Product Manager</strong><br>FISPAN Services Inc, Vancouver | Aug 2021 - Jun 2022</li>
-        </ul>
-    </section>
+        <details open>
+          <summary><strong>Business Applications Specialist</strong> – Doctors of BC (May 2024 – Present)</summary>
+          <p>Driving automation and workflows across internal systems.</p>
+        </details>
+        <details>
+          <summary><strong>Business Applications Developer</strong> – Watson Gloves (Nov 2022 – May 2024)</summary>
+          <p>Built custom NetSuite SuiteScripts to streamline operations.</p>
+        </details>
+        <details>
+          <summary><strong>Product Manager</strong> – FISPAN (Aug 2021 – Jun 2022)</summary>
+          <p>Managed bank API integrations; improved product adoption by 25%.</p>
+        </details>
+      </section>
 
-    <section>
+      <section>
         <h2>Projects</h2>
-        <ul class="projects">
-            <li><a href="renow.html"><strong>Renow</strong> – AI Renovation Copilot </a></li>
-            <li><strong>NetSuite</strong> – SuiteScripts automation</li>
-        </ul>
-    </section>
-
-    <section>
-        <h2>Get in Touch</h2>
-        <p><a href="hemanthanilofficial@gmail.com">Email</a></p>
-        <p><a href="https://www.linkedin.com/in/look4meanil" target="_blank">LinkedIn</a></p>
-        <p><a href="Resume-HemanthAnil.pdf" target="_blank">Download Resume</a></p>
-    </section>
-
+        <div class="project-card">
+          <h3>Renow</h3>
+          <p>AI renovation copilot that helps homeowners plan smarter.</p>
+          <a href="renow.html">View Case Study</a>
+        </div>
+        <div class="project-card">
+          <h3>NetSuite SuiteScripts</h3>
+          <p>Automation scripts built to customize ERP workflows.</p>
+          <a href="#">View Code</a>
+        </div>
+      </section>
+    </main>
+  </div>
 </body>
 </html>
