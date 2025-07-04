@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>NetSuite SuiteScript Integration</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <main class="content fade-in">
+    <h1>Automated Vendor & Employee Bank Sync via NetSuite SuiteScript</h1>
+    <p><em>Technical Product Manager - Doctors of BC </em></p>
+
+    <h2>Problem Statement</h2>
+    <p>
+      Manual bank account entry for vendors and employees into NetSuite was time-consuming, error-prone, and lacked real-time validation.
+      Payment-related data was entered from an external website manually, resulting in:
+    </p>
+    <ul>
+      <li>Frequent entry errors</li>
+      <li>Delayed updates to records</li>
+      <li>Sync issues with payment runs</li>
+      <li>Compliance and audit risks</li>
+    </ul>
+
+    <h2>Solution</h2>
+    <p>
+      Developed custom SuiteScript RESTlet endpoints that:
+    </p>
+    <ul>
+      <li>Create and update Vendor and Employee bank details</li>
+      <li>Validate input fields (account number, routing number, currency)</li>
+      <li>Sync data from external website forms in real time</li>
+    </ul>
+
+    <h2>Architecture Overview</h2>
+<pre>
+[Website Table updates]
+          |
+          v
+[Snowflake Daily Sync]  ← (data warehouse)
+          |
+          v
+[Databricks Python Job]  ← (ETL logic & orchestration) 
+          |
+  Triggers REST API calls (insert/update)
+          |
+          v
+[NetSuite SuiteScript RESTlets]
+          |
+  Updates Vendor/Employee Records
+</pre>
+
+
+    <h2>Tech Stack</h2>
+    <ul>
+      <li>SuiteScript 2.1 (RESTlet)</li>
+      <li>Postman</li>
+      <li>JSON POST/PUT APIs</li>
+      <li>External JS form integration</li>
+      <li>Deployed in NetSuite Sandbox → Production</li>
+    </ul>
+
+    <h2>Value Delivered</h2>
+    <table border="1" cellpadding="8" style="border-collapse: collapse;">
+      <tr><th>Metric</th><th>Before</th><th>After</th></tr>
+      <tr><td>Manual entry time</td><td>6–8 hrs/week</td><td>&lt; 5 min</td></tr>
+      <tr><td>Error rate</td><td>10%+</td><td>&lt; 1%</td></tr>
+      <tr><td>Sync delay</td><td>2–3 days</td><td>Real-time</td></tr>
+      <tr><td>Cost of errors</td><td>$5K+/quarter</td><td>&lt; $500</td></tr>
+    </table>
+
+    <h2>Impact</h2>
+    <p>
+      ✅ Reduced manual effort by 30+ hours/month<br>
+      ✅ Minimized payment re-issues and errors<br>
+      ✅ Built scalable REST pattern for future vendor/employee onboarding<br>
+    </p>
+
+    <p><a href="index.html">← Back to Portfolio</a></p>
+  </main>
+</body>
+</html>
