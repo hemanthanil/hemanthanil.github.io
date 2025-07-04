@@ -140,3 +140,21 @@ details summary {
     transform: translateY(0);
   }
 }
+.screenshot {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.screenshot img {
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 245, 212, 0.2);
+  border: 1px solid #00f5d455;
+}
+
+.caption {
+  font-size: 0.9em;
+  color: #aaa;
+  margin-top: 8px;
+}
+
