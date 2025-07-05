@@ -180,4 +180,32 @@ details summary {
   color: #aaa;
   margin-top: 8px;
 }
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 10%;
+  background-color: #111;
+  color: #fff;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.95em;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.site-footer a {
+  color: #00f5d4;
+  text-decoration: none;
+  margin-left: 15px;
+  font-size: 1.3em;
+  transition: color 0.2s ease;
+}
+
+.site-footer a:hover {
+  color: #0ff;
+}
+
+.footer-left a {
+  font-weight: bold;
+  font-size: 1em;
+}
 
