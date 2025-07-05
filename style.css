@@ -155,6 +155,9 @@ details summary {
   font-weight: bold;
   margin: 10px 0;
 }
+details summary::marker {
+  display: none;
+}
 
 .fade-in {
   opacity: 0;
