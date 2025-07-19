@@ -33,28 +33,29 @@
     </p>
     <ul>
       <li>Created root folder and nested structure by convention</li>
-      <li>Uploaded CSV files programmatically from a SQL serve</li>
+      <li>Uploaded CSV files programmatically from a SQL server</li>
       <li>Replaced files with new versions</li>
-      <li>Generated Shareable links</li>
-      <li>Schedule uploads via macOS (InProgress)</li>
-      <li>Apply metadata to classify documents (InProgress)</li>
+      <li>Generated shareable links</li>
+      <li>Schedule uploads via macOS (In Progress)</li>
+      <li>Apply metadata to classify documents (In Progress)</li>
     </ul>
 
     <h2>Architecture Overview</h2>
 <pre>
-[OnPremise System - MySQL]
+[OnPremise System - SQL Server]
           |
           v
-[Run BCP query via Powershell to download CSV files]
+[Run BCP query via Powershell to download CSV files - Scheduled]
           |
           v
-[Save to a watched folder, monitored by Powershell that triggers BOX CLI upload command]  
+[Save files to a watched folder, monitored by another Powershell script that triggers BOX CLI commands]  
           |
-  Triggers Upload calls (insert/update)
+Triggers Upload calls (insert/update)
           |
           v
-[BOX Desination Folder]
+  [BOX Desination Folder]
           |
+          V
 [Update MetaData and Shareable Links]
 </pre>
 
@@ -71,10 +72,10 @@
     <h2>Value Delivered</h2>
     <table border="1" cellpadding="8" style="border-collapse: collapse;">
       <tr><th>Metric</th><th>Before</th><th>After</th></tr>
-      <tr><td>Manual entry time</td><td>6–8 hrs/week</td><td>&lt; None</td></tr>
-      <tr><td>Upload Success rate</td><td>60%+</td><td>&lt; 95%+</td></tr>
+      <tr><td>Manual Uploads</td><td>60/month</td><td> 10 revisions/month </td></tr>
+      <tr><td>Upload Success rate</td><td>60%+</td><td>&lt; 95%</td></tr>
       <tr><td>Stakeholder Time Saved</td><td>2–3 days</td><td>5+ hrs/week</td></tr>
-      <tr><td>Intervention Required</td><td>1 on-prem system</td><td>&lt; None </td></tr>
+      <tr><td>Intervention Required</td><td>1 on-prem system</td><td>None </td></tr>
     </table>
 
     <p><a href="index.html">← Back to Home</a></p>
