@@ -36,58 +36,35 @@
       <li>AWS Lambda receives the event, fetches the file metadata, and applies routing logic.</li>
       <li>Based on metadata values (e.g., company ID, region, department), the Lambda moves the file to the correct destination folder.</li>
     </ul>
-    <p>This approach is:
-    <li>Flexible – Any logic supported in code can be applied (metadata validation, error handling, default routes).</li>
-    <li>Efficient – Uses a cached OAuth2 token, parallel Box API calls, and avoids unnecessary moves.</li>
-    <li>Secure – With webhook signature validation and environment-based folder mappings.</li>
+    <p>This approach is:</p>
+      <li>Flexible – Any logic supported in code can be applied (metadata validation, error handling, default routes).</li>
+      <li>Efficient – Uses a cached OAuth2 token, parallel Box API calls, and avoids unnecessary moves.</li>
+      <li>Secure – With webhook signature validation and environment-based folder mappings.</li>
     </p>
-    </p>
-    <ul>
-      <li>Created root folder and nested structure by convention</li>
-      <li>Uploaded CSV files programmatically from a SQL server</li>
-      <li>Replaced files with new versions</li>
-      <li>Generated shareable links</li>
-      <li>Schedule uploads via macOS (In Progress)</li>
-      <li>Apply metadata to classify documents (In Progress)</li>
-    </ul>
 
     <h2>Architecture Overview</h2>
 <pre>
-[OnPremise System - SQL Server]
-          |
-          v
-[Run BCP query via Powershell to download CSV files - Scheduled]
-          |
-          v
-[Save files to a watched folder, monitored by another Powershell script that triggers BOX CLI commands]  
-          |
-Triggers Upload calls (insert/update)
-          |
-          v
-  [BOX Desination Folder]
-          |
-          V
-[Update MetaData and Shareable Links]
+
 </pre>
 
 
     <h2>Tech Stack</h2>
     <ul>
-      <li>Powershell</li>
-      <li>Node.js/Bash(macOS)</li>
-      <li>BOX CLI</li>
-      <li>OAuth (JWT)</li>
-      <li>SQL Server</li>
+      <li>AWS Lambda (Node.js 18+) – Event-driven serverless function.</li>
+      <li>Box Webhooks – Event notification mechanism on file activity.</li>
+      <li>Box Content & Metadata API – To fetch file details, metadata, and perform moves.</li>
+      <li>AWS API Gateway (optional) – For routing and securing webhook calls.</li>
+      <li>AWS CloudWatch – For structured logging, error monitoring, and metrics.</li>
     </ul>
 
-    <h2>Value Delivered</h2>
-    <table border="1" cellpadding="8" style="border-collapse: collapse;">
-      <tr><th>Metric</th><th>Before</th><th>After</th></tr>
-      <tr><td>Manual Uploads</td><td>60/month</td><td> 10 revisions/month </td></tr>
-      <tr><td>Upload Success rate</td><td>60%+</td><td>&lt; 95%</td></tr>
-      <tr><td>Stakeholder Time Saved</td><td>2–3 days</td><td>5+ hrs/week</td></tr>
-      <tr><td>Intervention Required</td><td>1 on-prem system</td><td>None </td></tr>
-    </table>
+    <h2>Possible Applications</h2>
+    <ul>
+      <li>Multi-Company Intake – Shared service centers where incoming documents must be separated by client or legal entity.</li>
+      <li>Departmental Workflows – HR, Finance, and Legal documents automatically routed to correct departmental repositories.</li>
+      <li>Records Management – Apply retention categories via metadata and route to correct lifecycle folders.</li>
+      <li>Global Operations – Region-based folder routing to enforce data residency (e.g., EU vs. US storage).</li>
+      <li>Customer Onboarding – Automatically placing uploaded contracts, IDs, and forms into customer-specific folders.</li>
+    </ul>
 
     <p><a href="index.html">← Back to Home</a></p>
   </main>
