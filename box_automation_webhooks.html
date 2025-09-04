@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BOX Cloud Upload automation from On-prem</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <main class="content fade-in">
+    <h1>🚀 Automating File Routing in Box with AWS Lambda & Webhooks</h1>
+    <p><em>Business Applications Specialist (Technical Product Manager) - Doctors of BC | 2025 </em></p>
+    <p>
+      <a href="https://github.com/mranna/Automating-BOX-Cloud-Uploads-from-On-Prem" target="_blank" title="GitHub Repo">
+        <i class="fab fa-github"></i> GitHub
+    </a>
+    </p>
+    <h2>Problem Statement</h2>
+    <p>
+      Box Relay is a powerful workflow automation tool for many content-centric processes. However, one of its limitations is that it doesn’t support routing files to folders based on custom metadata values.
+      For example, you might want all uploaded invoices tagged with company1=1 to go into a dedicated folder for Company 1, and those tagged with company1=2 into Company 2’s folder. Relay cannot directly express this routing logic, especially when combined with complex metadata validation.
+      The result?
+      <ul>
+        <li>Manual file moves by end users.</li>
+        <li>Error-prone processes that break compliance rules.</li>
+        <li>Increased administrative burden and cost.</li>
+      </ul>
+    </p>
+    <h2>Solution</h2>
+    <p>
+     By leveraging AWS Lambda and Box Webhooks, we can create a lightweight, scalable solution to automatically route files as soon as they land in an intake folder. The flow looks like this:
+    <ul>
+      <li>A file is uploaded into the intake folder in Box.</li>
+      <li>Box fires a FILE.UPLOADED webhook.</li>
+      <li>AWS Lambda receives the event, fetches the file metadata, and applies routing logic.</li>
+      <li>Based on metadata values (e.g., company ID, region, department), the Lambda moves the file to the correct destination folder.</li>
+    </ul>
+    <p>This approach is:
+    <li>Flexible – Any logic supported in code can be applied (metadata validation, error handling, default routes).</li>
+    <li>Efficient – Uses a cached OAuth2 token, parallel Box API calls, and avoids unnecessary moves.</li>
+    <li>Secure – With webhook signature validation and environment-based folder mappings.</li>
+    </p>
+    </p>
+    <ul>
+      <li>Created root folder and nested structure by convention</li>
+      <li>Uploaded CSV files programmatically from a SQL server</li>
+      <li>Replaced files with new versions</li>
+      <li>Generated shareable links</li>
+      <li>Schedule uploads via macOS (In Progress)</li>
+      <li>Apply metadata to classify documents (In Progress)</li>
+    </ul>
+
+    <h2>Architecture Overview</h2>
+<pre>
+[OnPremise System - SQL Server]
+          |
+          v
+[Run BCP query via Powershell to download CSV files - Scheduled]
+          |
+          v
+[Save files to a watched folder, monitored by another Powershell script that triggers BOX CLI commands]  
+          |
+Triggers Upload calls (insert/update)
+          |
+          v
+  [BOX Desination Folder]
+          |
+          V
+[Update MetaData and Shareable Links]
+</pre>
+
+
+    <h2>Tech Stack</h2>
+    <ul>
+      <li>Powershell</li>
+      <li>Node.js/Bash(macOS)</li>
+      <li>BOX CLI</li>
+      <li>OAuth (JWT)</li>
+      <li>SQL Server</li>
+    </ul>
+
+    <h2>Value Delivered</h2>
+    <table border="1" cellpadding="8" style="border-collapse: collapse;">
+      <tr><th>Metric</th><th>Before</th><th>After</th></tr>
+      <tr><td>Manual Uploads</td><td>60/month</td><td> 10 revisions/month </td></tr>
+      <tr><td>Upload Success rate</td><td>60%+</td><td>&lt; 95%</td></tr>
+      <tr><td>Stakeholder Time Saved</td><td>2–3 days</td><td>5+ hrs/week</td></tr>
+      <tr><td>Intervention Required</td><td>1 on-prem system</td><td>None </td></tr>
+    </table>
+
+    <p><a href="index.html">← Back to Home</a></p>
+  </main>
+</body>
+</html>
