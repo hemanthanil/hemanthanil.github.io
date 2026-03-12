@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>BOX Cloud Upload automation from On-prem</title>
+  <title>FuelGuard MCP server to detect and investigate stationary fuel theft, reconcile fuel events with fuel card transactions, and flag efficiency vs fleet baseline—all through natural language.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
@@ -18,19 +18,17 @@
     </p>
     <h2>Problem Statement</h2>
     <p>
-      Our organization uses Box as the system of record for document storage, but core systems are hosted on air-gapped on-prem servers. This required manual document uploads from internal users — a time-consuming and error-prone process.
+      Fleet and finance teams lack a fast, conversational way to answer: "Did we have fuel theft last week?", "Which vehicles had drops with no matching card transaction?", and "Where did this card get used?" without digging through dashboards or writing reports.
     </p>
+    <h2>Who is this for: </h2>
     <ul>
-      <li>No collaboration or less productivity</li>
-      <li>High effort cost across teams</li>
-      <li>Dependency on another legacy system to email sensitive information</li>
-      <li>Compliance and audit risks</li>
+      <li>Product / fleet leads using Claude Desktop (or another MCP host) who want to query theft and fuel-card behaviour via chat.</li>
+      <li>Ops / fleet managers who need quick theft summaries and optional Slack alerts.</li>
+      <li>Finance interested in reconciling tank drops with card transactions and hold requests.</li>
     </ul>
-
     <h2>Solution</h2>
     <p>
-      Developed a prototype using the BOX CLI:
-    </p>
+      Expose Geotab (and ACE, fuel card and Slack integrations) as tools to an AI. The assistant can run theft detection, compare tank drops to card data, geocode locations, and optionally post alerts—so product and ops leads can ask in plain language and get summarized, actionable answers.    </p>
     <ul>
       <li>Created root folder and nested structure by convention</li>
       <li>Uploaded CSV files programmatically from a SQL server</li>
@@ -42,31 +40,22 @@
 
     <h2>Architecture Overview</h2>
 <pre>
-[OnPremise System - SQL Server]
-          |
-          v
-[Run BCP query via Powershell to download CSV files - Scheduled]
-          |
-          v
-[Save files to a watched folder, monitored by another Powershell script that triggers BOX CLI commands]  
-          |
-Triggers Upload calls (insert/update)
-          |
-          v
-  [BOX Desination Folder]
-          |
-          V
-[Update MetaData and Shareable Links]
+→ Geotab API + Fuel Card Transactions + Vehicle Mapping
+→ DuckDB staging and reconciliation layer
+→ Fleet scan and anomaly detection
+→ Fuel card comparison
+→ GPS/location enrichment
+→ Fleet Manager decision dashboard in MCP
 </pre>
-
 
     <h2>Tech Stack</h2>
     <ul>
-      <li>Powershell</li>
-      <li>Node.js/Bash(macOS)</li>
-      <li>BOX CLI</li>
-      <li>OAuth (JWT)</li>
-      <li>SQL Server</li>
+      <li>Python 3.11+</li>
+      <li>FastMCP</li>
+      <li>MyGeotab API</li>
+      <li>async httpx</li>
+      <li>DuckDB for local cache and card/theft data</li>
+      <li>uv for dependency and run management</li>
     </ul>
 
     <h2>Value Delivered</h2>
